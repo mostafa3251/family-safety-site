@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>تأكيد البريد — Family Safety</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="index.html"><span class="pin" aria-hidden="true"></span>Family Safety</a>
+</header>
+
+<section id="ok">
+  <div class="big-ok" aria-hidden="true">✓</div>
+  <h1>تم تأكيد بريدك الإلكتروني</h1>
+  <p>ارجع إلى تطبيق Family Safety على هاتفك وسجّل الدخول بالبريد وكلمة المرور.</p>
+  <div lang="en" dir="ltr">
+    <h2>Your email is confirmed</h2>
+    <p>Go back to the Family Safety app on your phone and sign in with your email and password.</p>
+  </div>
+</section>
+
+<section id="failed" hidden>
+  <h1>الرابط غير صالح أو منتهي</h1>
+  <p>ربما استُخدم الرابط من قبل أو انتهت مدته. جرّب تسجيل الدخول في التطبيق؛ وإن لم ينجح، أنشئ الحساب مرة أخرى ليصلك رابط جديد.</p>
+  <div lang="en" dir="ltr">
+    <h2>This link is invalid or expired</h2>
+    <p>It may have been used already or expired. Try signing in to the app; if that fails, sign up again to get a new link.</p>
+  </div>
+</section>
+
+<footer><a href="privacy.html">سياسة الخصوصية</a> · <a href="privacy-en.html" lang="en">Privacy policy</a></footer>
+</div>
+<script>
+  // يصل الرابط وفيه رموز الجلسة أو رسالة خطأ في الجزء بعد # : نقرأ الخطأ فقط،
+  // ثم نمسح العنوان فورًا حتى لا تبقى الرموز في السجلّ أو تُنسخ مع الرابط. لا يُرسَل شيء لأي مكان.
+  (function () {
+    var raw = (location.hash || '').slice(1) + '&' + (location.search || '').slice(1);
+    var failed = /(^|&)error(_code|_description)?=/.test(raw);
+    if (failed) {
+      document.getElementById('ok').hidden = true;
+      document.getElementById('failed').hidden = false;
+    }
+    if (location.hash || location.search) history.replaceState(null, '', location.pathname);
+  })();
+</script>
+</body>
+</html>
