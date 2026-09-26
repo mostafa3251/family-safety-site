@@ -66,6 +66,7 @@
 <ul>
   <li><strong>Supabase</strong>: database and accounts. Servers in Frankfurt, Germany (EU).</li>
   <li><strong>Expo</strong> and <strong>Google Firebase Cloud Messaging</strong>: delivering notifications to your phone (they receive the notification text and your device token).</li>
+  <li><strong>GitHub</strong>: stores the encrypted nightly backup described in section 4.</li>
   <li><strong>OpenFreeMap</strong>: map images. It receives your device's IP address and the area shown on screen, not your name or account.</li>
 </ul>
 
@@ -77,6 +78,7 @@
   <li>Your latest location: erased as soon as you pause sharing.</li>
   <li>Help requests: until you leave the family or delete your account.</li>
   <li>Account data and privacy log: until you delete your account.</li>
+  <li>Backups: each night an encrypted copy of account and family data (accounts, family, places, settings and privacy log; <strong>not</strong> locations, routes, help requests or messages) is kept for <strong>7 days</strong> so the service can be recovered after a failure, then deleted. Deleted data may remain in these copies until they expire.</li>
 </ul>
 
 <h2>5. Your controls</h2>
